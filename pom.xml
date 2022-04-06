@@ -28,6 +28,10 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>wsdl4j</groupId>
+            <artifactId>wsdl4j</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -67,8 +71,7 @@
                     <schemaIncludes>
                         <include>countryInfoService.wsdl</include>
                     </schemaIncludes>
-
-                </configuration>
+                 </configuration>
             </plugin>
         </plugins>
     </build>
