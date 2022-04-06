@@ -65,8 +65,9 @@
                     <generatePackage>com.soap.client.gen</generatePackage>
                     <schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>
                     <schemaIncludes>
-                        <include>CountryInfoService.wsdl</include>
+                        <include>countryInfoService.wsdl</include>
                     </schemaIncludes>
+
                 </configuration>
             </plugin>
         </plugins>
