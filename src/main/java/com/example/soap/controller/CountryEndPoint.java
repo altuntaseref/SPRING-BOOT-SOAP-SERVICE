@@ -1,6 +1,8 @@
 package com.example.soap.controller;
 
 import com.example.soap.Client.CountryServiceClient;
+import com.soap.client.gen.FullCountryInfo;
+import com.soap.client.gen.FullCountryInfoResponse;
 import com.soap.client.gen.ListOfCountryNamesByCode;
 import com.soap.client.gen.ListOfCountryNamesByCodeResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +17,6 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 public class CountryEndPoint {
 
     private CountryServiceClient countryClient;
-
     @Autowired
     public CountryEndPoint(CountryServiceClient countryClient) {
         this.countryClient = countryClient;
@@ -25,14 +26,28 @@ public class CountryEndPoint {
 
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "ListOfCountryNamesByCode")
     @ResponsePayload
-    public ListOfCountryNamesByCodeResponse respose(@RequestPayload ListOfCountryNamesByCode requestType){
+    public ListOfCountryNamesByCodeResponse response(@RequestPayload ListOfCountryNamesByCode requestType){
         try {
             ListOfCountryNamesByCodeResponse responseType = new ListOfCountryNamesByCodeResponse();
             responseType = countryClient.listOfCountryNamesByCode(requestType);
+           // log.info(responseType.getListOfCountryNamesByCodeResult().getTCountryCodeAndName().get(0).getSISOCode());
             return responseType;
         }catch (Exception e){
             log.error("Internal error", e.getMessage(),e);
             throw e;
         }
+
     }
+
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "FullCountryInfo")
+    @ResponsePayload
+    public FullCountryInfoResponse fullCountryInfoResponse(@RequestPayload FullCountryInfo request ){
+
+        FullCountryInfoResponse responseType = new FullCountryInfoResponse();
+        responseType = countryClient.fullCountryInfoResponse(request);
+        return responseType;
+    }
+
+
 }

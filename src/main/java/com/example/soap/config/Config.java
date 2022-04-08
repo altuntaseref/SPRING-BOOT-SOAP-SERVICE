@@ -50,31 +50,5 @@ public class Config extends WsConfigurerAdapter {
 
     }
 
-    String endpoint= "http://localhost:8083/websamples.countryinfo/CountryInfoService.wso";
-
-    URL wsdl = Config.class.getClassLoader().getResource("/wsdl/countryInfo.wsdl");
-
-    String namespace = "http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso";
-    String localName = "listOfCountryNamesByCode";
-
-
-
-
-
-    /*
-    http://localhost:8082/wsdlfirst/country
-    http://localhost:9091/medium/ws/calculatorDemo
-    http://localhost:8082/country/ws/country
-    @Bean(name = "countryInfoService")
-    public DefaultWsdl11Definition defaultWsdl11Definition()
-    {
-        DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-        wsdl11Definition.setPortTypeName("CountryInfoServiceSoap");
-        wsdl11Definition.setLocationUri("/service/country-code-name");
-        wsdl11Definition.setTargetNamespace("http://www.oorsprong.org/websamples.countryinfo");
-        wsdl11Definition.setSchema();
-
-        return wsdl11Definition;
-    }*/
 
 }
