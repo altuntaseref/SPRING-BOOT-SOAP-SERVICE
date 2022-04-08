@@ -969,10 +969,10 @@
     <service name="CountryInfoService">
         <documentation>This DataFlex Web Service opens up country information. 2 letter ISO codes are used for Country code. There are functions to retrieve the used Currency, Language, Capital City, Continent and Telephone code.</documentation>
         <port name="CountryInfoServiceSoap" binding="tns:CountryInfoServiceSoapBinding">
-            <soap:address location="http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"/>
+            <soap:address location="http://localhost:8083/country"/>
         </port>
         <port name="CountryInfoServiceSoap12" binding="tns:CountryInfoServiceSoapBinding12">
-            <soap12:address location="http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso"/>
+            <soap12:address location="http://localhost:8083/country"/>
         </port>
     </service>
 </definitions>

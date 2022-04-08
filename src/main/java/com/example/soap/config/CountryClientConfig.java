@@ -1,12 +1,17 @@
 package com.example.soap.config;
 
 import com.example.soap.Client.CountryServiceClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 
 @Configuration
 public class CountryClientConfig {
+
+    @Value("${WSDL.ClientEndpoint}")
+    private String clientEndpoint;
+
 
     @Bean
     public Jaxb2Marshaller marshaller() {
@@ -17,7 +22,7 @@ public class CountryClientConfig {
     @Bean
     public CountryServiceClient countryClient(Jaxb2Marshaller marshaller) {
         CountryServiceClient client = new CountryServiceClient();
-        client.setDefaultUri("http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso");
+        client.setDefaultUri(clientEndpoint);
         client.setMarshaller(marshaller);
         client.setUnmarshaller(marshaller);
         return client;
